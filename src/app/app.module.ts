@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectGroupComponent } from './projects/project-group/project-group.component';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
+import { MyIssuesComponent } from './dashboard/my-issues/my-issues.component';
+import { MyProjectsComponent } from './dashboard/my-projects/my-projects.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ProjectFormComponent } from './projects/project-form/project-form.compo
     DashboardComponent,
     ProjectsComponent,
     ProjectGroupComponent,
-    ProjectFormComponent
+    ProjectFormComponent,
+    MyIssuesComponent,
+    MyProjectsComponent
   ],
   imports: [
     BrowserModule,
