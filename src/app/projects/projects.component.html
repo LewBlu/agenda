@@ -1,8 +1,15 @@
 <div class="row mt-3">
     <div class="col-12 d-flex justify-content-end">
-        <button class="btn btn-primary">Add Project</button>
+        <button class="btn btn-primary" (click)="showForm = !showForm">Add Project</button>
     </div>
 </div>
-<app-project-group></app-project-group>
-<app-project-group></app-project-group>
-<app-project-group></app-project-group>
+<div class="row">
+    <div class="col">
+        <app-project-group></app-project-group>
+        <app-project-group></app-project-group>
+        <app-project-group></app-project-group>
+    </div>
+    <div class="col" *ngIf="showForm" [@inOutAnimation]>
+        <app-project-form></app-project-form>
+    </div>
+</div>
