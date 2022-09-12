@@ -3,37 +3,14 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Project Group 1</h5>
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between">
-                        Example Project 1
+                <ul class="list-group" cdkDropList (cdkDropListDropped)="drop($event)">
+                    <li class="list-group-item d-flex justify-content-between" *ngFor="let task of tasks" cdkDrag cdkDragPreviewContainer="parent">
+                        <div class="list-group-item list-group-item-secondary" *cdkDragPlaceholder></div>
+                        {{task}}
                         <div>
                             <span class="badge bg-secondary mx-1">4</span>
                             <span class="badge bg-warning mx-1">2</span>
                             <span class="badge bg-success mx-1">1</span>
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        Example Project 2
-                        <div>
-                            <span class="badge bg-secondary mx-1">12</span>
-                            <span class="badge bg-warning mx-1">5</span>
-                            <span class="badge bg-success mx-1">40</span>
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        Example Project 3
-                        <div>
-                            <span class="badge bg-secondary mx-1">18</span>
-                            <span class="badge bg-warning mx-1">0</span>
-                            <span class="badge bg-success mx-1">16</span>
-                        </div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        Example Project 4
-                        <div>
-                            <span class="badge bg-secondary mx-1">10</span>
-                            <span class="badge bg-warning mx-1">7</span>
-                            <span class="badge bg-success mx-1">96</span>
                         </div>
                     </li>
                 </ul>
