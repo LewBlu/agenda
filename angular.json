@@ -71,7 +71,11 @@
             },
             "development": {
               "browserTarget": "agenda:build:development"
-            }
+            },
+			"options": {
+				"sslKey": "/key.pem",
+				"sslCert": "/cert.pem"
+			}
           },
           "defaultConfiguration": "development"
         },
