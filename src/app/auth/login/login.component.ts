@@ -20,14 +20,12 @@ export class LoginComponent implements OnInit {
 	}
 
 	login() {
-		this.http.post('https://localhost:8080/login', this.loginForm.value, { withCredentials: true }).subscribe(result => {
-			if (result) { this.router.navigateByUrl('/') }
+		this.http.post('https://localhost:8080/login', this.loginForm.value, { withCredentials: true }).subscribe((result: any) => {
+			if (result) {
+				localStorage.setItem('user', JSON.stringify(result.user));
+				this.router.navigateByUrl('/');
+			}
+			console.log(result);
 		});
 	}
-
-	// projects() {
-	// 	this.http.get('https://localhost:8080/projects', { withCredentials: true }).subscribe(result => {
-	// 		console.log(result);
-	// 	});
-	// }
 }

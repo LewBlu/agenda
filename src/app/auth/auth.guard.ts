@@ -11,6 +11,8 @@ export class AuthGuard implements CanActivate {
 		if (document.cookie.match(/^(.*;)?\s*connect.sid\s*=\s*[^;]+(.*)?$/)) {
 			return true;
 		}
+		// No session cookie found, remove user from local storage
+		localStorage.removeItem('user');
 		return this.router.parseUrl('/login');
 	}
 }
