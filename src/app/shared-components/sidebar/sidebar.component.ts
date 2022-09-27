@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+	selector: 'app-sidebar',
+	templateUrl: './sidebar.component.html',
+	styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+	constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
 
+	onSignOut() {
+		this.authService.signout();
+	}
 }
