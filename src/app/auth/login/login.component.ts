@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
 	selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 	loginForm!: FormGroup;
-	constructor(private http: HttpClient, private router: Router) { }
+	constructor(private authService: AuthService) { }
 
 	ngOnInit(): void {
 		this.loginForm = new FormGroup({
@@ -19,13 +20,7 @@ export class LoginComponent implements OnInit {
 		});
 	}
 
-	login() {
-		this.http.post('https://localhost:8080/login', this.loginForm.value, { withCredentials: true }).subscribe((result: any) => {
-			if (result) {
-				localStorage.setItem('user', JSON.stringify(result.user));
-				this.router.navigateByUrl('/');
-			}
-			console.log(result);
-		});
+	onLogin() {
+		this.authService.login(this.loginForm.value);
 	}
 }

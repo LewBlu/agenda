@@ -1,10 +1,10 @@
 <main class="h-100 w-100 d-flex justify-content-center align-items-center">
-	<form class="w-25 bg-light p-5 border rounded" [formGroup]="loginForm" (ngSubmit)="login()">
+	<form class="w-25 bg-light p-5 border rounded" [formGroup]="loginForm" (ngSubmit)="onLogin()">
 		<h3 class="h mb-3 text-center">Please sign in</h3>
 		<div class="form-floating mb-3">
 			<input type="text" class="form-control" id="floatingInput" placeholder="username..." formControlName="username">
 			<label for="floatingInput">Username</label>
-		  </div>
+		</div>
 		<div class="form-floating mb-3">
 			<input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
 			<label for="floatingPassword">Password</label>
