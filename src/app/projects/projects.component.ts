@@ -5,7 +5,6 @@ import { trigger, style, animate, transition } from '@angular/animations';
 	selector: 'app-projects',
 	templateUrl: './projects.component.html',
 	styleUrls: ['./projects.component.css'],
-	host: { 'class': 'd-flex h-100' },
 	animations: [
 		trigger('inOutAnimation', [
 			transition(':enter', [

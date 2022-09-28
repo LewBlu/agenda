@@ -1,19 +1,16 @@
-<app-sidebar></app-sidebar>
-<main class="container-fluid flex-grow-1 bg-light" style="overflow-y:auto;">
-	<div class="row mt-3">
-		<div class="col-3">
-			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-		</div>
-		<div class="col-9 d-flex justify-content-end">
-			<button class="btn btn-primary" (click)="showForm = !showForm">Add Project</button>
-		</div>
+<div class="row mt-3">
+	<div class="col-3">
+		<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 	</div>
-	<div class="row">
-		<div class="col">
-			<app-project-group></app-project-group>
-		</div>
-		<div class="col" *ngIf="showForm" [@inOutAnimation]>
-			<app-project-form></app-project-form>
-		</div>
+	<div class="col-9 d-flex justify-content-end">
+		<button class="btn btn-primary" (click)="showForm = !showForm">Add Project</button>
 	</div>
-</main>
+</div>
+<div class="row">
+	<div class="col">
+		<app-project-group></app-project-group>
+	</div>
+	<div class="col" *ngIf="showForm" [@inOutAnimation]>
+		<app-project-form></app-project-form>
+	</div>
+</div>
