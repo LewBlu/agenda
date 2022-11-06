@@ -12,7 +12,7 @@ export class ProjectService {
 	constructor(private http: HttpClient) { }
 
 	getMyProjects() {
-		if (this.myProjects != null) {
+		if (this.myProjects.value.length == 0) {
 			this.http.get('https://localhost:8080/projects/my-projects', { withCredentials: true }).subscribe((result: any) => {
 				this.myProjects?.next(result.result);
 			});
@@ -20,8 +20,12 @@ export class ProjectService {
 	}
 
 	createProject(project_data: Project) {
-		this.http.post('https://localhost:8080/projects/create', project_data, { withCredentials: true }).subscribe(result => {
-			return { 'success': true, project: result };
+		this.http.post('https://localhost:8080/projects/create', project_data, { withCredentials: true }).subscribe((result: any) => {
+			// Once project added, add to list of my projects
+			let myProjectsUpdated = this.myProjects.value;
+			myProjectsUpdated.push(result.result);
+			this.myProjects.next(myProjectsUpdated);
+			return result;
 		});
 	}
 }
