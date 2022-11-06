@@ -8,7 +8,7 @@
 </div>
 <div class="row">
 	<div class="col">
-		<app-project-group></app-project-group>
+		<app-project-group [projects]="projects"></app-project-group>
 	</div>
 	<div class="col" *ngIf="showForm" [@inOutAnimation]>
 		<app-project-form></app-project-form>

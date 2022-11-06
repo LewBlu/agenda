@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { Subscription } from 'rxjs';
+import { Project } from '../interfaces/project';
+import { ProjectService } from './project.service';
 
 @Component({
 	selector: 'app-projects',
@@ -18,8 +21,23 @@ import { trigger, style, animate, transition } from '@angular/animations';
 		])
 	]
 })
-export class ProjectsComponent implements OnInit {
-	constructor() { }
+export class ProjectsComponent implements OnInit, OnDestroy {
+	projectsSubscription!: Subscription;
+	projects!: Project[];
 	showForm: boolean = false;
-	ngOnInit(): void { }
+
+	constructor(private projectService: ProjectService) { }
+
+	ngOnInit(): void {
+		this.projectService.getMyProjects();
+		this.projectsSubscription = this.projectService.myProjects!.subscribe((result: any) => {
+			this.projects = result;
+		});
+	}
+
+	ngOnDestroy(): void {
+		if (this.projectsSubscription != null) {
+			this.projectsSubscription.unsubscribe();
+		}
+	}
 }
