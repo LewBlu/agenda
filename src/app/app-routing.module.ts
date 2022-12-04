@@ -6,12 +6,17 @@ import { ProfileComponent } from './auth/profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SettingsComponent } from './settings/settings.component';
+import { UsersComponent } from './settings/users/users.component';
 
 const routes: Routes = [
 	{ path: '', component: DashboardComponent, canActivate: [AuthGuard] },
 	{ path: 'projects', component: ProjectsComponent, canActivate: [AuthGuard] },
 	{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-	{ path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+	{
+		path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], children: [
+			{ path: 'users', component: UsersComponent }
+		]
+	},
 	{ path: 'login', component: LoginComponent },
 ];
 

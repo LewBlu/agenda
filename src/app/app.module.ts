@@ -17,6 +17,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
+import { UsersComponent } from './settings/users/users.component';
 
 @NgModule({
 	declarations: [
@@ -30,7 +31,8 @@ import { SettingsComponent } from './settings/settings.component';
 		MyProjectsComponent,
 		LoginComponent,
 		ProfileComponent,
-  SettingsComponent
+		SettingsComponent,
+		UsersComponent
 	],
 	imports: [
 		BrowserModule,
