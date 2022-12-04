@@ -16,6 +16,7 @@ import { MyProjectsComponent } from './dashboard/my-projects/my-projects.compone
 import { LoginComponent } from './auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './auth/profile/profile.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
 	declarations: [
@@ -28,7 +29,8 @@ import { ProfileComponent } from './auth/profile/profile.component';
 		MyIssuesComponent,
 		MyProjectsComponent,
 		LoginComponent,
-		ProfileComponent
+		ProfileComponent,
+  SettingsComponent
 	],
 	imports: [
 		BrowserModule,
