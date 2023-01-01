@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './auth/profile/profile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { UsersComponent } from './settings/users/users.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
 	declarations: [
@@ -41,7 +42,8 @@ import { UsersComponent } from './settings/users/users.component';
 		BrowserAnimationsModule,
 		DragDropModule,
 		FormsModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		FontAwesomeModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
